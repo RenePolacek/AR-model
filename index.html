@@ -2,26 +2,67 @@
 <html lang="cs">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>AR model</title>
 
-    <!-- Google <model-viewer> -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <!-- Google model-viewer -->
+    <script type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+    </script>
 
     <style>
-      html, body { height: 100%; margin: 0; background: #0b0b0b; }
-      model-viewer { width: 100%; height: 100%; }
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #000;
+        overflow: hidden;
+      }
+
+      model-viewer {
+        width: 100%;
+        height: 100%;
+        background: #000;
+      }
+
+      .hint {
+        position: absolute;
+        bottom: 12px;
+        width: 100%;
+        text-align: center;
+        color: #aaa;
+        font-family: system-ui, sans-serif;
+        font-size: 12px;
+        opacity: 0.8;
+        pointer-events: none;
+      }
     </style>
   </head>
+
   <body>
+
     <model-viewer
       src="instovilla.glb"
+
       ar
       ar-modes="scene-viewer webxr quick-look"
+
+      ar-scale="fixed"
+      scale="0.15 0.15 0.15"
+
       camera-controls
       auto-rotate
       shadow-intensity="1"
-      alt="AR model"
-    ></model-viewer>
+
+      exposure="1"
+      environment-image="neutral"
+
+      alt="AR model">
+    </model-viewer>
+
+    <div class="hint">
+      Pohybuj telefonem, namiř na podlahu nebo stůl
+    </div>
+
   </body>
 </html>
