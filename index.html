@@ -2,39 +2,55 @@
 <html lang="cs">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>AR model</title>
 
-    <!-- Google model-viewer -->
-    <script type="module"
-      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
-    </script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
     <style>
-      html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        background: #000;
-        overflow: hidden;
-      }
-
-      model-viewer {
-        width: 100%;
-        height: 100%;
-        background: #000;
-      }
-
+      html, body { height: 100%; margin: 0; background: #000; overflow: hidden; }
+      model-viewer { width: 100%; height: 100%; background: #000; }
       .hint {
         position: absolute;
-        bottom: 12px;
-        width: 100%;
-        text-align: center;
-        color: #aaa;
-        font-family: system-ui, sans-serif;
-        font-size: 12px;
-        opacity: 0.8;
-        pointer-events: none;
+        left: 12px; right: 12px; bottom: 12px;
+        padding: 10px 12px;
+        border-radius: 14px;
+        background: rgba(0,0,0,.45);
+        border: 1px solid rgba(255,255,255,.12);
+        color: rgba(255,255,255,.85);
+        font: 12px/1.35 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        backdrop-filter: blur(6px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <model-viewer
+      src="instovilla.glb"
+      alt="3D model"
+
+      camera-controls
+      disable-pan
+
+      auto-rotate
+      auto-rotate-delay="0"
+      rotation-per-second="20deg"
+
+      environment-image="neutral"
+      shadow-intensity="1"
+      exposure="1"
+
+      ar
+      ar-modes="scene-viewer webxr quick-look"
+      ar-placement="floor"
+      ar-scale="fixed"
+    ></model-viewer>
+
+    <div class="hint">
+      Tip: pro AR namiř telefonem na podlahu nebo stůl a chvíli s ním pomalu pohybuj.
+    </div>
+  </body>
+</html>        pointer-events: none;
       }
     </style>
   </head>
